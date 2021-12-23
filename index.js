@@ -1,4 +1,4 @@
-import express, { application } from "express"
+import express from "express"
 import mongoose from "mongoose"
 import dotenv from "dotenv"
 import cors from "cors"
@@ -31,10 +31,7 @@ const todo=await TodoModel.find({});
 
 if(todo){
 
-  return  res.status(200).json({
-        message:"Fetch all todos from database",
-        data:todo
-    })
+  return  res.status(200).json(todo)
 }else{
   return  res.status(400).json({
         message:"Faileed to fetch todos from database"
